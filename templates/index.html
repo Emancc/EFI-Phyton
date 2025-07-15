@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %} Flask App {% endblock %}
+
+{% block content %}
+    <h1>Blogs</h1>
+    <p>en esta parte requeriria una especie de cuadrilla en la que se vean los blogs.</p>
+    <div class="blogs">
+        <div class="blog">
+            <h3>Titulo"{user_post_title}"</h3>
+            <p>el contenido del blog es: "{user_post_description}"</p>
+            <div>
+                <p>Echo por :"{user_name_posted}"</p>
+                <button class="btn btn-success"><i class="bi bi-balloon-heart"></i></button>
+                <button class="btn btn-danger">Eliminar</button>
+                <button class="btn btn-warning">Editar</button>
+            </div>
+        </div>
+        <div class="blog">
+            <h3>Titulo"{user_post_title}"</h3>
+            <p>el contenido del blog es: "{user_post_description}"</p>
+            <div>
+                <p>Echo por :"{user_name_posted}"</p>
+                <button class="btn btn-success"><i class="bi bi-balloon-heart"></i></button>
+                <button class="btn btn-danger">Eliminar</button>
+                <button class="btn btn-warning">Editar</button>
+            </div>
+        </div>
+        <div class="blog">
+            <h3>Titulo"{user_post_title}"</h3>
+            <p>el contenido del blog es: "{user_post_description}"</p>
+            <div>
+                <p>Echo por :"{user_name_posted}"</p>
+                <button class="btn btn-success"><i class="bi bi-balloon-heart"></i></button>
+                <button class="btn btn-danger">Eliminar</button>
+                <button class="btn btn-warning">Editar</button>
+            </div>
+        </div>
+        <div class="blog">
+            <h3>Titulo"{user_post_title}"</h3>
+            <p>el contenido del blog es: "{user_post_description}"</p>
+            <div>
+                <p>Echo por :"{user_name_posted}"</p>
+                <button class="btn btn-success"><i class="bi bi-balloon-heart"></i></button>
+                <button class="btn btn-danger">Eliminar</button>
+                <button class="btn btn-warning">Editar</button>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
