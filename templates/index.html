@@ -4,48 +4,37 @@
 
 {% block content %}
     <h1>Blogs</h1>
-    <p>en esta parte requeriria una especie de cuadrilla en la que se vean los blogs.</p>
-    <div class="blogs">
-        <div class="blog">
-            <h3>Titulo"{user_post_title}"</h3>
-            <p>el contenido del blog es: "{user_post_description}"</p>
-            <div>
-                <p>Echo por :"{user_name_posted}"</p>
-                <button class="btn btn-success"><i class="bi bi-balloon-heart"></i></button>
-                <button class="btn btn-danger">Eliminar</button>
-                <button class="btn btn-warning">Editar</button>
-            </div>
-        </div>
-        <div class="blog">
-            <h3>Titulo"{user_post_title}"</h3>
-            <p>el contenido del blog es: "{user_post_description}"</p>
-            <div>
-                <p>Echo por :"{user_name_posted}"</p>
-                <button class="btn btn-success"><i class="bi bi-balloon-heart"></i></button>
-                <button class="btn btn-danger">Eliminar</button>
-                <button class="btn btn-warning">Editar</button>
-            </div>
-        </div>
-        <div class="blog">
-            <h3>Titulo"{user_post_title}"</h3>
-            <p>el contenido del blog es: "{user_post_description}"</p>
-            <div>
-                <p>Echo por :"{user_name_posted}"</p>
-                <button class="btn btn-success"><i class="bi bi-balloon-heart"></i></button>
-                <button class="btn btn-danger">Eliminar</button>
-                <button class="btn btn-warning">Editar</button>
-            </div>
-        </div>
-        <div class="blog">
-            <h3>Titulo"{user_post_title}"</h3>
-            <p>el contenido del blog es: "{user_post_description}"</p>
-            <div>
-                <p>Echo por :"{user_name_posted}"</p>
-                <button class="btn btn-success"><i class="bi bi-balloon-heart"></i></button>
-                <button class="btn btn-danger">Eliminar</button>
-                <button class="btn btn-warning">Editar</button>
-            </div>
-        </div>
-    </div>
+    <p>En esta parte requeriría una especie de cuadrilla en la que se vean los blogs.</p>
 
+    <div class="container">
+        <div class="row">
+          {% for blog in blogs %}
+          <div class="col-md-4 mb-4 d-flex">
+            <div class="card p-3 w-100 h-100 d-flex flex-column" style="background-color: #d2d9e0;min-height: 400px;">
+              <h3 class="text-center">{{ blog.title }}</h3>
+                <p class="text-center mt-4">{{ blog.description }}</p>
+          
+                <div class="mt-auto">
+                  <p class="text-center mb-2">Hecho por: {{ blog.author.username }}</p>
+                  <div class="d-flex justify-content-around">
+                    <form action="{{ url_for('like', blog_id=blog.id) }}" method="POST">
+                      <button class="btn btn-success btn-lg"><i class="bi bi-balloon-heart"></i></button>
+                    </form>
+                    <form action="{{ url_for('delete', blog_id=blog.id) }}" method="POST">
+                      <button class="btn btn-danger btn-lg"><i class="bi bi-trash"></i></button>
+                    </form>
+                    <form action="{{ url_for('edit', blog_id=blog.id) }}" method="POST">
+                      <button class="btn btn-warning btn-lg"><i class="bi bi-pencil"></i></button>
+                    </form>
+                  </div>
+                </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    
+    
 {% endblock %}
+
+

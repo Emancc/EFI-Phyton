@@ -2,20 +2,3 @@ span{
     font-weight: bold;
     color: #007bff;
 }
-
-.blogs{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-}
-
-.blog{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: space-between;
-    height:400px;
-    background-color: #dae5ef;
-    padding: 1rem;
-    border-radius: 5px;
-}
