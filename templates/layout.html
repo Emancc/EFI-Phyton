@@ -9,39 +9,39 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/stiles.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
   </head>
-  <body>
-    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+  <body class="d-flex flex-column" style="background-color: #eeeeee;">
+    <nav class="navbar navbar-expand-sm navbar-light bg-dark text-white">
       <div class="container">
-        <a class="navbar-brand" href="{{ url_for('index') }}"><span>MINI</span>BLOG</a>
+        <h2 class="text-center p-2"><span>MINI</span>BLOG</h2>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavId">
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ">
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('index') }}">Inicio</a>
+              <a id="links" class="nav-link" href="{{ url_for('index') }}">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('crear_blog') }}">Crear Blog</a>
+              <a id="links" class="nav-link" href="{{ url_for('crear_blog') }}">Crear Blog</a>
             </li>   
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('about') }}">Acerca de</a>
+              <a id="links" class="nav-link" href="{{ url_for('about') }}">Acerca de</a>
             </li> 
           </ul>
           <ul class="navbar-nav ml-auto">
             {% if current_user.is_authenticated %}
               <li class="nav-item">
-                <a class="nav-link" href="#">{{ current_user.username }}</a>
+                <a id="User" class="nav-link" href="#">{{ current_user.username }} <i class="bi bi-check"></i></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('logout') }}">Cerrar sesión</a>
+                <a id="links" class="nav-link" href="{{ url_for('logout') }}">Cerrar sesión</a>
               </li>
             {% else %}
               <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('login') }}">Iniciar sesión</a>
+                <a id="links" class="nav-link" href="{{ url_for('login') }}">Iniciar sesión</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('register') }}">Registrarse</a>
+                <a id="links" class="nav-link" href="{{ url_for('register') }}">Registrarse</a>
               </li>
             {% endif %}
           </ul>
@@ -65,6 +65,9 @@
 
       {% block content %}{% endblock %}
     </div>
+    <footer class="bg-dark text-white text-center p-3 mt-4">
+      <p>&copy; 2025 MiniBlog. Todos los derechos reservados.</p>
+    </footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
