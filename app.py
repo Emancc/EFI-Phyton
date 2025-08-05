@@ -215,7 +215,6 @@ def register_routes(app):
     def categoria_detalle(slug):
         # Obtener la categoría por su slug
         categoria = Category.query.filter_by(slug=slug).first_or_404()
-        
         # Obtener los blogs de esta categoría, ordenados por fecha de creación
         blogs = Blogs.query.filter_by(category_id=categoria.id).order_by(Blogs.created_at.desc()).all()
         

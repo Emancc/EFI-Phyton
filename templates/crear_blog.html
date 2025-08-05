@@ -6,9 +6,10 @@
 <div class="container py-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card shadow-sm">
+            <div class="card-crear shadow-sm">
                 <div class="card-body">
-                    <h3 class="text-center mb-4"><span>CREAR</span> BLOG</h3>
+                    <h1 class=" text-center display-5 fw-bold mb-3"><span class="text-primary">CREAR</span> BLOGS</h1>
+                    <p class="lead text-center">Crea un nuevo blog para compartir tus ideas y conocimientos</p>
                     <form method="post" action="">
                         <div class="form-group mb-3">
                             <label for="titulo" class="form-label">Título</label>
@@ -31,7 +32,7 @@
                         </div>
                         
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <a href="{{ url_for('index') }}" class="btn btn-outline-secondary me-md-2">Cancelar</a>
+                            <a href="{{ url_for('index') }}" class="btn btn-outline-secondary me-md-2 mx-2">Cancelar</a>
                             <button type="submit" class="btn btn-primary">Publicar</button>
                         </div>
                     </form>
@@ -41,31 +42,4 @@
     </div>
 </div>
 
-<style>
-    .card {
-        border: none;
-        border-radius: 10px;
-    }
-    
-    .form-control, .form-select {
-        border-radius: 8px;
-        padding: 10px 15px;
-    }
-    
-    .form-control:focus, .form-select:focus {
-        border-color: #86b7fe;
-        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-    }
-    
-    .btn {
-        padding: 8px 20px;
-        border-radius: 20px;
-        font-weight: 500;
-    }
-    
-    h3 span {
-        color: #0d6efd;
-        font-weight: bold;
-    }
-</style>
 {% endblock %}

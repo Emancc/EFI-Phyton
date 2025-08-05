@@ -42,7 +42,7 @@ class Blogs(db.Model):
     # Clave foránea que referencia a Category.id
     category_id = db.Column(db.Integer, db.ForeignKey('category.id'), nullable=True)
     
-    # Relación con comentarios
+    # Relaciones
     comments = db.relationship('Comment', backref='blog', lazy=True, cascade='all, delete-orphan')
 
     def __repr__(self):
