@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block title %} Categorias {% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h3 class="text-center mb-4"><span>CATEGORIAS</span></h3>
+    
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        {% for categoria in categorias %}
+        <div class="col">
+            <div class="card h-100 shadow-sm d-flex flex-column">
+                <div class="card-body text-center flex-grow-1">
+                    <h5 class="card-title">{{ categoria.name }}</h5>
+                    <p class="card-text">{{ categoria.description }}</p>
+                </div>
+                <div class="card-footer bg-transparent border-top-0">
+                    <a href="{{ url_for('categoria_detalle', slug=categoria.slug) }}" class="btn btn-outline-primary w-100">Ver artículos</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: none;
+        border-radius: 10px;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .card-title {
+        color: #333;
+        font-weight: 600;
+    }
+    
+    .btn-outline-primary {
+        border-radius: 20px;
+        padding: 5px 20px;
+    }
+    
+    h3 span {
+        color: #007bff;
+        font-weight: bold;
+        position: relative;
+        padding-bottom: 10px;
+    }
+    
+    h3 span:after {
+        content: '';
+        position: absolute;
+        width: 50%;
+        height: 3px;
+        bottom: 0;
+        left: 25%;
+        background: #007bff;
+    }
+</style>
+{% endblock %}

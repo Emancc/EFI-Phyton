@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ categoria.name }} - Categorías{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row mb-4">
+        <div class="col-12 text-center">
+            <h2 class="mb-3">{{ categoria.name }}</h2>
+            <p class="lead">{{ categoria.description }}</p>
+        </div>
+    </div>
+
+    {% if blogs %}
+        <div class="row">
+            {% for blog in blogs %}
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ blog.title }}</h5>
+                        <p class="card-text">
+                            {{ blog.description|truncate(150) }}
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">Por {{ blog.author.username }}</small>
+                            <small class="text-muted">{{ blog.created_at.strftime('%d/%m/%Y') }}</small>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <a href="#" class="btn btn-sm btn-outline-primary">Leer más</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-info text-center">
+            <p class="mb-0">No hay artículos en esta categoría todavía.</p>
+        </div>
+    {% endif %}
+
+    <div class="mt-4 text-center">
+        <a href="{{ url_for('categoria') }}" class="btn btn-outline-secondary">
+            <i class="bi bi-arrow-left"></i> Volver a categorías
+        </a>
+    </div>
+</div>
+
+<style>
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: none;
+        border-radius: 10px;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .card-title {
+        color: #333;
+        font-weight: 600;
+    }
+    
+    .btn-outline-primary {
+        border-radius: 20px;
+        padding: 5px 20px;
+    }
+    
+    h2 {
+        color: #007bff;
+        font-weight: bold;
+        position: relative;
+        padding-bottom: 15px;
+    }
+    
+    h2:after {
+        content: '';
+        position: absolute;
+        width: 50px;
+        height: 3px;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #007bff;
+    }
+</style>
+{% endblock %}
